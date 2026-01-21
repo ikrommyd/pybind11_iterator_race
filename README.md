@@ -17,3 +17,10 @@ should get you
                ^^^^^^
 E       TypeError: Object of type 'iterator' is not an instance of 'iterator'
 ```
+
+As a workaround, you can force the iterator type to be created at module load time.
+```bash
+git apply patch.patch
+uv pip install .
+pytest --parallel-threads=6 tests
+```

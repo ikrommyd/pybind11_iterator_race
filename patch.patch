@@ -1,0 +1,16 @@
+diff --git a/src/module.cpp b/src/module.cpp
+index f00f7b1..43cc8fb 100644
+--- a/src/module.cpp
++++ b/src/module.cpp
+@@ -29,4 +29,11 @@ PYBIND11_MODULE(_iterator_race, m, py::mod_gil_not_used()) {
+         .def("__iter__", [](const Container &c) {
+             return py::make_key_iterator(c.begin(), c.end());
+         }, py::keep_alive<0, 1>());
++
++    // Workaround: force iterator type creation at module load (single-threaded)
++    {
++        Container dummy;
++        auto it = py::make_key_iterator(dummy.begin(), dummy.end());
++        (void)it;
++    }
+ }
