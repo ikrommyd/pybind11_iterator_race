@@ -1,0 +1,13 @@
+[build-system]
+requires = ["scikit-build-core>=0.8", "pybind11>=2.12"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "iterator_race"
+version = "0.1.0"
+description = "Minimal reproducer for pybind11 iterator race condition"
+requires-python = ">=3.9"
+dependencies = ["pytest", "pytest-run-parallel"]
+
+[tool.scikit-build]
+cmake.version = ">=3.15"
