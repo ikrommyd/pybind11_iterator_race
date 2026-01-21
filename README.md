@@ -18,6 +18,7 @@ should get you
 E       TypeError: Object of type 'iterator' is not an instance of 'iterator'
 ```
 
+or another error but this is the most common one I've got.
 As a workaround, you can force the iterator type to be created at module load time.
 ```bash
 git apply patch.patch
