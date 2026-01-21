@@ -3,6 +3,7 @@
 To reproduce:
 ```bash
 uv venv -p 3.14t
+source .venv/bin/activate
 uv pip install .
 pytest --parallel-threads=6 tests
 ```
